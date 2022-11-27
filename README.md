@@ -1,2 +1,3 @@
-# virtual-sq1
- Virtual Square-1 represented in 2D.
+# Virtual Square-1
+
+Virtual Square-1 represented in 2D.
