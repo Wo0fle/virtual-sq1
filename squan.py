@@ -1,5 +1,7 @@
 """Virtual Square-1 logic"""
 
+from copy import deepcopy
+
 
 class Squan:
     """A Virtual Square-1 object."""
@@ -37,12 +39,48 @@ class Squan:
         return top_layer_statement + middle_layer_statement + bottom_layer_statement
 
     def slice(self):
-        """Executes a slice move."""
+        """Executes a slice move, if possible"""
 
-        # copy original pieces_lists
-        # remove pieces from copy top and copy bottom
-        # add them back in opposite layer (copy, not orig)
-        # set orig layers = to copy layers
+        def remove_slice_pieces(pieces_list=list):
+            value = 0
+            total_pieces_values = 0
+
+            for i, piece in enumerate(pieces_list):
+                if total_pieces_values < 6:
+                    total_pieces_values += piece[value]
+                elif total_pieces_values == 6:
+                    sliced_pieces = pieces_list[i:]
+                    remaining_pieces = pieces_list[:i]
+
+                    return remaining_pieces, sliced_pieces
+                else:
+                    return "Illegal slice", "Illegal slice"
+
+        def add_slice_pieces(orig_list=list, pieces_to_add=list):
+            pieces_to_add.reverse()
+            orig_list += pieces_to_add
+            return orig_list
+
+        top_copy = deepcopy(self.top_layer)
+        bottom_copy = deepcopy(self.bottom_layer)
+
+        remaining_top_pieces, removed_top_pieces = remove_slice_pieces(top_copy)
+        remaining_bottom_pieces, removed_bottom_pieces = remove_slice_pieces(
+            bottom_copy
+        )
+        if (
+            removed_top_pieces != "Illegal slice"
+            and removed_bottom_pieces != "Illegal slice"
+        ):
+            sliced_top = add_slice_pieces(remaining_top_pieces, removed_bottom_pieces)
+            sliced_bottom = add_slice_pieces(
+                remaining_bottom_pieces, removed_top_pieces
+            )
+
+            self.middle_layer_flipped = not self.middle_layer_flipped
+
+            self.top_layer = sliced_top
+            self.bottom_layer = sliced_bottom
 
     def move(self, instructions=str):
         """Reads the inputted instructions and moves accordingly"""
