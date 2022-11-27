@@ -39,5 +39,10 @@ class Squan:
     def slice(self):
         """Executes a slice move."""
 
+        # copy original pieces_lists
+        # remove pieces from copy top and copy bottom
+        # add them back in opposite layer (copy, not orig)
+        # set orig layers = to copy layers
+
     def move(self, instructions=str):
         """Reads the inputted instructions and moves accordingly"""
