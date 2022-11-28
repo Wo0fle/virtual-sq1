@@ -85,12 +85,27 @@ class Squan:
     def move(self, instructions=str):
         """Reads the inputted instructions and moves accordingly."""
 
-        def turn_top(top_layer):
-            pass
+        # do tick clock and tick prime in here
 
-            # raise SyntaxError("Error in instructions") # if imposible
+        def turn_top(top_layer=list, turn_amount=int):
+            total_value = 0
+            tick_clock_amount = 0
 
-        def turn_bottom(bottom_layer):
+            if turn_amount > 0:
+                for piece in top_layer:
+                    if total_value < turn_amount:
+                        total_value += piece[0]
+                        tick_clock_amount += 1
+                    if total_value == turn_amount:
+                        pass
+
+                        # tickclock by tick_clock_amount
+                    else:
+                        raise SyntaxError("Error in instructions")
+            elif turn_amount < 0:
+                pass  # same but other way
+
+        def turn_bottom(bottom_layer=list, turn_amount=int):
             pass
 
             # raise SyntaxError("Error in instructions") # if imposible
@@ -102,8 +117,8 @@ class Squan:
                     if instructions[i + 2].isdigit():
                         """add instructions[i] to top, instructions[i+2] to bottom"""
                         try:
-                            turn_top(self.top_layer)
-                            turn_bottom(self.bottom_layer)
+                            turn_top(self.top_layer, instructions[i])
+                            turn_bottom(self.bottom_layer, instructions[i + 2])
                         except (SyntaxError):
                             print("Unable to execute instructed moves")
             elif instructions[i] == "/":
