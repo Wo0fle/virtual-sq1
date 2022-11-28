@@ -3,6 +3,7 @@ from squan import Squan
 
 def main():
     test = Squan()
+
     print(test)
 
 

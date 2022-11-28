@@ -31,7 +31,7 @@ class Squan:
     def __init__(self):
         pass
 
-    def __str__(self) -> str:
+    def __str__(self):
         top_layer_statement = f"Top Layer:\n{str(self.top_layer)}"
         middle_layer_statement = f"\nMiddle Layer Flipped? {self.middle_layer_flipped}"
         bottom_layer_statement = f"\nBottom Layer:\n{str(self.bottom_layer)}"
@@ -83,4 +83,31 @@ class Squan:
             self.bottom_layer = sliced_bottom
 
     def move(self, instructions=str):
-        """Reads the inputted instructions and moves accordingly"""
+        """Reads the inputted instructions and moves accordingly."""
+
+        def turn_top(top_layer):
+            pass
+
+            # raise SyntaxError("Error in instructions") # if imposible
+
+        def turn_bottom(bottom_layer):
+            pass
+
+            # raise SyntaxError("Error in instructions") # if imposible
+
+        for i in range(len(instructions)):
+            # ik range len is cringe but it makes it more readable here imo
+            if instructions[i].isdigit():
+                if instructions[i + 1] == ",":
+                    if instructions[i + 2].isdigit():
+                        """add instructions[i] to top, instructions[i+2] to bottom"""
+                        try:
+                            turn_top(self.top_layer)
+                            turn_bottom(self.bottom_layer)
+                        except (SyntaxError):
+                            print("Unable to execute instructed moves")
+            elif instructions[i] == "/":
+                self.slice()
+
+    def check_for_parity(self):
+        """Checks parity count, returns if is odd or even."""
