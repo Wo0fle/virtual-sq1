@@ -115,12 +115,8 @@ class Squan:
             if instructions[i].isdigit():
                 if instructions[i + 1] == ",":
                     if instructions[i + 2].isdigit():
-                        """add instructions[i] to top, instructions[i+2] to bottom"""
-                        try:
-                            turn_top(self.top_layer, instructions[i])
-                            turn_bottom(self.bottom_layer, instructions[i + 2])
-                        except (SyntaxError):
-                            print("Unable to execute instructed moves")
+                        turn_top(self.top_layer, instructions[i])
+                        turn_bottom(self.bottom_layer, instructions[i + 2])
             elif instructions[i] == "/":
                 self.slice()
 
