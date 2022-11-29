@@ -85,38 +85,71 @@ class Squan:
     def move(self, instructions=str):
         """Reads the inputted instructions and moves accordingly."""
 
-        # do tick clock and tick prime in here
+        def tick_clock(layer=list, top_or_bottom=str, amount=int):
+            if top_or_bottom == "top":
+                for i in range(amount):
+                    last_piece = layer.pop(len(layer) - 1)
+                    layer.insert(0, last_piece)
+            elif top_or_bottom == "bottom":
+                for i in range(amount):
+                    first_piece = layer.pop(0)
+                    layer.insert(len(layer) - 1, first_piece)
 
-        def turn_top(top_layer=list, turn_amount=int):
+            return layer
+
+        def tick_prime(layer=list, top_or_bottom=str, amount=int):
+            if top_or_bottom == "top":
+                for i in range(amount):
+                    first_piece = layer.pop(0)
+                    layer.insert(len(layer) - 1, first_piece)
+            elif top_or_bottom == "bottom":
+                for i in range(amount):
+                    last_piece = layer.pop(len(layer) - 1)
+                    layer.insert(0, last_piece)
+
+            return layer
+
+        def turn(layer=list, top_or_bottom=str, turn_amount=int):
             total_value = 0
-            tick_clock_amount = 0
+            tick_amount = 0
 
             if turn_amount > 0:
-                for piece in top_layer:
+                for i, piece in enumerate(layer):
                     if total_value < turn_amount:
-                        total_value += piece[0]
-                        tick_clock_amount += 1
-                    if total_value == turn_amount:
-                        pass
+                        if i == 0:
+                            prev_location = 7
+                        else:
+                            prev_location = i - 1
 
-                        # tickclock by tick_clock_amount
+                        total_value += layer[prev_location][0]
+                        tick_amount += 1
+                    if total_value == turn_amount:
+                        layer = tick_clock(layer, top_or_bottom, tick_amount)
                     else:
                         raise SyntaxError("Error in instructions")
             elif turn_amount < 0:
-                pass  # same but other way
+                for piece in layer:
+                    if total_value > turn_amount:
+                        total_value -= piece[0]
+                        tick_amount += 1
+                    if total_value == turn_amount:
+                        layer = tick_prime(layer, top_or_bottom, tick_amount)
+                    else:
+                        raise SyntaxError("Error in instructions")
 
-        def turn_bottom(bottom_layer=list, turn_amount=int):
-            pass
-
-            # raise SyntaxError("Error in instructions") # if imposible
+            return layer
 
         for i in range(len(instructions)):
             # ik range len is cringe but it makes it more readable here imo
             if instructions[i].isdigit():
                 if instructions[i + 1] == ",":
                     if instructions[i + 2].isdigit():
-                        turn_top(self.top_layer, instructions[i])
-                        turn_bottom(self.bottom_layer, instructions[i + 2])
+                        self.top_layer = turn(
+                            self.top_layer, "top", int(instructions[i])
+                        )
+                        self.bottom_layer = turn(
+                            self.bottom_layer, "bottom", int(instructions[i + 2])
+                        )
             elif instructions[i] == "/":
                 self.slice()
 
