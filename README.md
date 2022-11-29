@@ -1,5 +1,3 @@
 # Virtual Square-1
 
-Virtual Square-1 represented in 2D.
-
-> i want to make a visual representation somehow... i'll figure it out somehow
+This is mainly being developed to be used in [SST](https://github.com/Wo0fle/sq1-trainer), but I will likely also make it work on its own cuz i think it's cool lol
