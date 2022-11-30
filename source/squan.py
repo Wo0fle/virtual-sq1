@@ -84,8 +84,10 @@ class Squan:
 
     def move(self, instructions=str):
         """Reads the inputted instructions and moves accordingly."""
+        
+        # so yeah i need to redo all of this
 
-        def tick_clock(layer=list, top_or_bottom=str, amount=int):
+        """def tick_clock(layer=list, top_or_bottom=str, amount=int):
             if top_or_bottom == "top":
                 for i in range(amount):
                     last_piece = layer.pop(len(layer) - 1)
@@ -151,7 +153,9 @@ class Squan:
                             self.bottom_layer, "bottom", int(instructions[i + 2])
                         )
             elif instructions[i] == "/":
-                self.slice()
+                self.slice()"""
 
     def check_for_parity(self):
         """Checks parity count, returns if is odd or even."""
+        
+        # note to self...  actally make it work lol
