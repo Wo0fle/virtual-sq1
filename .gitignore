@@ -1,3 +1,9 @@
+# Visual Studio Code
+.vscode/
+
+# Testing, testing...
+isthisthingon.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
