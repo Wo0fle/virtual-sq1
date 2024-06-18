@@ -46,7 +46,7 @@ class Square1:
         if self.equator_flipped:
             return f"{self.top}/{self.bottom}"
         else:
-            return f"{self.top}|{self.bottom}"
+            return f"{self.top}-{self.bottom}"
     
     def flip_equator(self) -> None:
         """Directly changes the equator state `equator_flipped` of the Square1 from flipped (True) to not flipped (False) (and vice-versa) without affecting other pieces."""
@@ -226,9 +226,9 @@ class Square1:
                     self.flip_equator()
                     state_list = list(state)
                     state_list.remove("/")
-                elif "|" in state:
+                elif "-" in state:
                     state_list = list(state)
-                    state_list.remove("|")
+                    state_list.remove("-")
             else:
                 state_list = list(state)
             
