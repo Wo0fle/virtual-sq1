@@ -26,6 +26,10 @@ Classes:
 
 Author: Seby Amador
 License: GNU GPLv3
+
+This module was highly inspired by the following:
+    Tyson Decker's puzzle-gen (https://tdecker91.github.io/puzzlegen-demo/)
+    Jaap's Square-1 optimiser (https://www.jaapsch.net/puzzles/square1.htm#progs)
 """
 
 __version__ = '1.0.dev'
@@ -93,7 +97,7 @@ class Square1:
         Resets the Square1 to its previous state if unsuccessful.
 
         Notes:
-            The distinction between a "case" and an "algorithm" was made by Tyson Decker's puzzle-gen (https://tdecker91.github.io/puzzlegen-demo/), which highly inspired this module.
+            The distinction between a "case" and an "algorithm" was made by Tyson Decker's puzzle-gen: https://tdecker91.github.io/puzzlegen-demo/
         """
 
         initial_state = self.__str__()
