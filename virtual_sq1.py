@@ -116,9 +116,9 @@ class Square1:
 
                 while abs(turn_amount) > 6:
                     if turn_amount > 0:
-                        turn_amount -= 6
+                        turn_amount -= 12
                     else:
-                        turn_amount += 6
+                        turn_amount += 12
 
                 if not self.top.turn(turn_amount):
                     self.apply_state(initial_state)
@@ -136,9 +136,9 @@ class Square1:
 
                 while abs(turn_amount) > 6:
                     if turn_amount > 0:
-                        turn_amount -= 6
+                        turn_amount -= 12
                     else:
-                        turn_amount += 6
+                        turn_amount += 12
 
                 if not self.bottom.turn(turn_amount):
                     self.apply_state(initial_state)
@@ -194,7 +194,7 @@ class Square1:
         Changes the Square1's state to match the input state `state` (resets the Square1 to its previous state if unsuccessful).
         
         Notes:
-            This module uses the same state system as Jaap's Square-1 optimiser: https://www.jaapsch.net/puzzles/square1.htm#progs.
+            This module uses the same position notation as Jaap's Square-1 optimiser: https://www.jaapsch.net/puzzles/square1.htm#progs.
         """
 
         initial_state = self.__str__()
@@ -324,7 +324,7 @@ class Layer:
                     self.current_state = piece + self.current_state[:-1]
                 else:
                     if amount != 0 or not self.is_sliceable():
-                        print('\nLOGIC ERROR involving an incomplete turn detected!')
+                        print('\nLOGIC ERROR involving an incomplete turn detected!\n')
                         self.current_state = initial_state[::-1]
                         return False
 
@@ -344,7 +344,7 @@ class Layer:
                     self.current_state = self.current_state[1:] + piece
                 else:
                     if amount != 0 or not self.is_sliceable():
-                        print('\nLOGIC ERROR involving an incomplete turn detected!')
+                        print('\nLOGIC ERROR involving an incomplete turn detected!\n')
                         self.current_state = initial_state
                         return False
 
