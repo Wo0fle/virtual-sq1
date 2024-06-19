@@ -38,7 +38,6 @@ jobs:
       run: |
         coverage erase
         coverage run -m pytest TEST_virtual_sq1.py
-        coverage report --omit=TEST_virtual_sq1.py
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v2.3.0
             
