@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 pytest
+        python -m pip install flake8 pytest coverage
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -37,6 +37,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Test coverage with coverage
+      run: |
+        coverage erase
+        coverage run -m TEST_virtual_sq1.py
+        coverage report
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v2.3.0
             
