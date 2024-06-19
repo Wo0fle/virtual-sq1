@@ -1,2 +1,3 @@
 # virtual-sq1
- Python module that simulates a Square-1
+
+## Python module that simulates a Square-1 twisty puzzle
