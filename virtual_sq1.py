@@ -94,11 +94,11 @@ class Square1:
         if input_type == 0: # case
             self._invert_alg(errored_input)
 
-            print(f'Error at "{','.join(error_turns)}" (move #{len(errored_input) - error_turns_index}).\nSquare-1 reset to previous state.\n')
+            print(f'Error at "{",".join(error_turns)}" (move #{len(errored_input) - error_turns_index}).\nSquare-1 reset to previous state.\n')
         elif input_type == 1: # alg
-            print(f'Error at "{','.join(error_turns)}" (move #{error_turns_index + 1}).\nSquare-1 reset to previous state.\n')
+            print(f'Error at "{",".join(error_turns)}" (move #{error_turns_index + 1}).\nSquare-1 reset to previous state.\n')
         elif input_type == 2: # state
-            print(f'Error with "{''.join(errored_input)}".\nSquare-1 reset to previous state.\n')
+            print(f'Error with "{"".join(errored_input)}".\nSquare-1 reset to previous state.\n')
 
     def slash(self) -> None: # lol "slice" is taken by Python already
         """Does a slice/slash move to the Square1."""
