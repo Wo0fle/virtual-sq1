@@ -14,9 +14,9 @@ setup(
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Topic :: Games/Entertainment :: Puzzle Games',
         'Programming Language :: Python',
-    ],  
-    
+    ],
+
     py_modules=['virtual_sq1'],
 
-    extras_require={'dev':['pytest','coverage']}
+    extras_require={'dev': ['pytest', 'coverage']}
 )
