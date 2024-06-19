@@ -2,7 +2,7 @@ from virtual_sq1 import Square1
 import pytest
 
 
-# 94% coverage: im pretty sure i tested every typical case soooo basically if something fails then thats a skill issue :]
+# im pretty sure i tested every typical case soooo basically if something fails then thats a skill issue :]
 
 @pytest.fixture
 def sq1():
