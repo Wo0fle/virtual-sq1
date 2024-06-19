@@ -127,8 +127,8 @@ class Square1:
                 right_side_D = self.bottom.current_state[:i+1]
                 left_side_D = self.bottom.current_state[i+1:]
         
-        self.top.current_state = left_side_U + right_side_D
-        self.bottom.current_state =  right_side_U + left_side_D
+        self.top = Layer(left_side_U + right_side_D)
+        self.bottom =  Layer(right_side_U + left_side_D)
         self._flip_equator()
     
     def apply_alg(self, alg:str, for_case:bool=False) -> None:
