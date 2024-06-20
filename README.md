@@ -1,5 +1,9 @@
 # virtual-sq1
 
+### `pip install virtual_sq1`
+
+<br>
+
 ## Python module that simulates a [Square-1 twisty puzzle](https://ruwix.com/twisty-puzzles/square-1-back-to-square-one/)
 
 [![Build](https://github.com/Wo0fle/virtual-sq1/actions/workflows/main.yml/badge.svg)](https://github.com/Wo0fle/virtual-sq1/actions/workflows/main.yml)
