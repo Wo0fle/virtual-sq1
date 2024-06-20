@@ -44,13 +44,20 @@ This module was highly inspired by the following:
         https://tdecker91.github.io/puzzlegen-demo/
     Jaap's Square-1 optimiser
         https://www.jaapsch.net/puzzles/square1.htm#progs
+
+
+Need help? Visit https://github.com/Wo0fle/virtual-sq1
 """
 
-__version__ = '1.0.0'
+__version__ = '1.0.0'  # pragma: no cover
 
 
 class Square1:
-    """A virtual Square-1 object."""
+    """
+    A virtual Square-1 object.
+
+    Need help? Visit https://github.com/Wo0fle/virtual-sq1
+    """
 
     def __init__(self) -> None:
         """Initializes the Square1. Solved by default."""
@@ -262,7 +269,7 @@ class Square1:
         (resets the Square1 to its previous state if unsuccessful).
 
         Notes:
-            This module uses the same position notation as
+            This module uses (almost) the same position notation as
             Jaap's Square-1 optimiser: https://www.jaapsch.net/puzzles/square1.htm#progs.
         """
 
@@ -271,7 +278,7 @@ class Square1:
         initial_bottom = self.bottom.current_state
 
         req_pieces = "ABCDEFGH12345678"
-        state = [i for i in state.upper() if i != " "]
+        state = [piece for piece in state.upper() if piece != " "]
         state_list = list(state)
 
         for req_piece in req_pieces:
