@@ -1,6 +1,6 @@
-# How to Read `virtual_sq1`'s notation
+# How to Read `virtual-sq1`'s notation
 
-`virtual_sq1` uses (almost<sup>*</sup>) the same position notation as [Jaap's Square-1 optimiser](https://www.jaapsch.net/puzzles/square1.htm#progs).
+`virtual-sq1` uses (almost<sup>*</sup>) the same position notation as [Jaap's Square-1 optimiser](https://www.jaapsch.net/puzzles/square1.htm#progs).
 
 ![Diagram of Jaap Scherphuis's Square-1 position notation](./images/solved.png)
 
@@ -18,7 +18,7 @@ So the complete state of the Square-1 in the diagram above is **A1B2C3D4-5E6F7G8
 
 <br><br>
 
-<sup><footnote>*</footnote> The only difference between the two styles is that `virtual_sq1`'s notation has the equator's symbol *between* the two layers' states, whereas Jaap's Square-1 optimiser has the equator's symbol *after* the layers' states. I opted to make this small change so it would be easier to distinguish between the top and bottom layers.</sup>
+<sup><footnote>*</footnote> The only difference between the two styles is that `virtual-sq1`'s notation has the equator's symbol *between* the two layers' states, whereas Jaap's Square-1 optimiser has the equator's symbol *after* the layers' states. I opted to make this small change so it would be easier to distinguish between the top and bottom layers.</sup>
 
 <br><br>
 
