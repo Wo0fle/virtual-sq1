@@ -1,6 +1,6 @@
 # virtual-sq1
 
-### `pip install virtual_sq1`
+### `pip install virtual-sq1`
 
 <br>
 
