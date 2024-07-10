@@ -27,7 +27,7 @@ my_square_1 = Square1()
 
 *`virtual_sq1` uses (almost) the same position notation as [Jaap's Square-1 optimiser](https://www.jaapsch.net/puzzles/square1.htm#progs).*
 
-*Don't know how to read it? [Click here 🔗](./docs/jared19.md)*
+*Don't know how to read it? [Click here!](https://github.com/Wo0fle/virtual-sq1/blob/main/docs/jared19.md)*
 
 ```python
 my_square_1 = Square1()
