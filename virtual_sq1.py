@@ -49,7 +49,7 @@ This module was highly inspired by the following:
 Need help? Visit https://github.com/Wo0fle/virtual-sq1
 """
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 
 
 class Square1:
@@ -65,6 +65,7 @@ class Square1:
         self.top = Layer("A1B2C3D4")
         self.equator_flipped = False
         self.bottom = Layer("5E6F7G8H")
+        self.error_message = ""
 
     def __str__(self) -> str:
         """Converts the Square1's state to a string."""
@@ -125,11 +126,13 @@ class Square1:
         if input_type == 0:  # case
             self._invert_alg(errored_input)
 
-            print(f'Error at "{",".join(error_turns)}" (move #{len(errored_input) - error_turns_i}).\nSquare-1 reset to previous state.\n')
+            self.error_message = f'Error at "{",".join(error_turns)}" (move #{len(errored_input) - error_turns_i}).\nCheck that your input starts and ends in fully-aligned cubeshape.\nSquare-1 reset to previous state.\n'
         elif input_type == 1:  # alg
-            print(f'Error at "{",".join(error_turns)}" (move #{error_turns_i + 1}).\nSquare-1 reset to previous state.\n')
+            self.error_message = f'Error at "{",".join(error_turns)}" (move #{error_turns_i + 1}).\nSquare-1 reset to previous state.\n'
         elif input_type == 2:  # state
-            print(f'Error with "{"".join(errored_input)}".\nSquare-1 reset to previous state.\n')
+            self.error_message = f'Error with "{"".join(errored_input)}".\nCheck your input isn\'t missing any or contains any extra symbols.\nSquare-1 reset to previous state.\n'
+        
+        print(self.error_message)
 
     def slash(self) -> None:  # lol "slice" is taken by Python already
         """Does a slice/slash move to the Square1."""
@@ -257,6 +260,7 @@ class Square1:
 
         if legal:
             self.slash()
+            self.error_message = ""
         else:
             if for_case:
                 self._error_detected(0, simplfied_alg, simplfied_alg[i], i)
@@ -327,6 +331,8 @@ class Square1:
 
                     self.top = Layer(new_top)
                     self.bottom = Layer(new_bottom)
+
+                    self.error_message = ""
 
                     break
                 elif value > 12:

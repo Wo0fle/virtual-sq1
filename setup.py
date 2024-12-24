@@ -7,7 +7,7 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name='virtual_sq1',
+    name='virtual-sq1',
     description='Python module that simulates a Square-1 twisty puzzle',
     long_description=long_description,
     long_description_content_type='text/markdown',
